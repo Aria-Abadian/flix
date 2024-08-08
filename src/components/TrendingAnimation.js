@@ -40,7 +40,7 @@ const TrendingAnimation = () => {
       </div>
       <div className="h-[27.5vw] flex flex-row items-center">
         {trendingCards.map((trendingCard, index) => (
-          <div className="flex flex-col gap-[.5vw] px-[2vw] ">
+          <div className="flex flex-col gap-[.5vw] px-[2vw] " key={index}>
             <div className="object-cover h-[21vw] w-[15vw] cursor-pointer overflow-hidden rounded-[2vw]">
               <img
                 className=" w-full self-center"
