@@ -13,10 +13,10 @@ import hotel from "../assets/hotel4.webp";
 const TrendingAnimation = () => {
   const trendingCards = [
     { image: desMe, title: "Despicable Me 4", rate: "4.5", year: "2024" },
-    { image: hotel, title: "Hotel Transilvania 4", rate: "4.7", year: "2024" },
-    { image: frozen, title: "Frozen", rate: "4.3", year: "2020" },
-    { image: hotel, title: "Hotel Transilvania 4", rate: "4.7", year: "2024" },
-    { image: panda, title: "Kong Fu Panda 4", rate: "4.8", year: "2024" },
+    { image: hotel, title: "Hotel Transylvania 4", rate: "4.7", year: "2022" },
+    { image: frozen, title: "Frozen", rate: "4.3", year: "2013" },
+    { image: hotel, title: "Hotel Transylvania 4", rate: "4.7", year: "2022" },
+    { image: panda, title: "Kung Fu Panda 4", rate: "4.8", year: "2024" },
   ];
   return (
     <div className="h-[31.6vw]">
