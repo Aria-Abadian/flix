@@ -21,7 +21,7 @@ const TrendingAnimation = ({ category }) => {
   }
 
   const [trendingCards, setTrendingCards] = useState([...animations]);
-  const [openFilters, setOpenFilters] = useState(0);
+  const [openFilters, setOpenFilters] = useState('0');
   const [selectedRating, setSelectedRating] = useState(null);
   const [selectedYear, setSelectedYear] = useState(null);
 
@@ -37,14 +37,14 @@ const TrendingAnimation = ({ category }) => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
+    
   }, []);
-
   // Handle filter visibility
   const handleFilters = () => {
-    if (windowWidth >= 768) {
-      setOpenFilters(openFilters === 0 ? 3 : 0);
+    if (windowWidth >= 767) {
+      setOpenFilters(openFilters === '0' ? '3vw' : '0');
     } else {
-      setOpenFilters(openFilters === 0 ? 20 : 0);
+      setOpenFilters(openFilters === '0' ? '20vw' : '0');
     }
   };
 
@@ -149,7 +149,7 @@ const TrendingAnimation = ({ category }) => {
           </div>
         </div>
         <div
-          className={`text-white text-nowrap h-[${openFilters}vw] overflow-hidden overflow-x-scroll bg-slate-900/90 
+          className={`text-white text-nowrap h-${openFilters} overflow-x-scroll overflow-hidden bg-slate-900/90
           mb-[5vw] md:mb-[2vw] flex md:flex-row items-center px-[10vw] md:px-[3vw] gap-[15vw] md:gap-[5vw]`}
         >
           <div className="flex flex-row gap-[5vw] md:gap-[1vw]">

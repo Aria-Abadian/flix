@@ -1,7 +1,7 @@
 import React from "react";
-import Featured from "./Featured";
-import FilterButtons from "./FilterButtons";
-import Trendings from "./Trendings";
+import Featured from "../components/Featured";
+import FilterButtons from "../components/FilterButtons";
+import Trendings from "../components/Trendings";
 
 const Home = () => {
   return (

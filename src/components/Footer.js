@@ -3,7 +3,7 @@ import { FaInstagram, FaTelegramPlane, FaWhatsapp } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className="bg-slate-900 md:bg-slate-950 flex flex-col md:flex-row items-center md:items-start md:justify-center p-[10vw] md:p-[2vw] text-center">
+    <div className="bg-slate-900 md:bg-slate-950 flex flex-col md:flex-row items-center md:items-start md:justify-center p-[10vw] md:p-[2vw] text-center relative z-10">
       <div className="mb-[10vw] md:m-0 md:w-[30vw]">
         <h4 className="text-white font-semibold">About Us</h4>
         <p className="text-slate-200 text-justify mt-[5vw] md:mt-[1vw]">

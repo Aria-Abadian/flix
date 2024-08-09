@@ -1,9 +1,10 @@
 import "./App.css";
 
-import bg from './assets/bg.svg'
+import bg from "./assets/bg.svg";
 import Navbar from "./components/Navbar";
 
-import Home from "./components/Home";
+import Home from "./pages/Home";
+import AllMovies from "./pages/allMovies";
 import Footer from "./components/Footer";
 
 function App() {
@@ -11,14 +12,17 @@ function App() {
     <div className="bg-slate-700">
       <Navbar />
       <div
-        className="absolute w-full h-[130vw] blur-3xl z-0 brightness-80 "
+        className="fixed w-full h-full blur-3xl z-0 brightness-80 "
         style={{
           backgroundImage: `url(${bg})`,
-          backgroundSize: "100% auto",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
       >
+        
       </div>
-      <Home />
+      {/* <Home /> */}
+      <AllMovies />
       <Footer />
     </div>
   );
