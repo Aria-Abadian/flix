@@ -1,14 +1,16 @@
 import React from "react";
 import Featured from "./Featured";
 import FilterButtons from "./FilterButtons";
-import TrendingAnimation from "./TrendingAnimation";
+import Trendings from "./Trendings";
 
 const Home = () => {
   return (
-    <div className="relative z-10 pt-[6.2vw]">
+    <div className="relative z-10 pt-[18vw] md:pt-[6.2vw]">
       <Featured />
       <FilterButtons />
-      <TrendingAnimation />
+      <Trendings category='Animation' />
+      <Trendings category='Comedy' />
+      <Trendings category='K-drama' />
     </div>
   );
 };

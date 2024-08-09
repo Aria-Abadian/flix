@@ -22,16 +22,17 @@ const FilterButtons = () => {
   ];
 
   return (
-    <div className=" h-[9vw] flex flex-row items-center justify-center gap-3">
+    <div className="overflow-x-scroll overflow-y-hidden px-[5vw] h-[15vw] md:h-[9vw] flex flex-row items-center gap-3">
       {categories.map((cat, index) => (
         <ul key={index}>
           <li>
             <button
-              className=" flex flex-row items-center justify-center font-semibold gap-2 text-2xl bg-[#8e9399]/10 w-[13vw] h-[6vw]
+              className=" flex flex-row items-center justify-center font-semibold gap-2 text-2xl bg-[#8e9399]/10 w-[30vw] h-[8vw]
+              md:w-[13vw] md:h-[6vw]
             rounded-[2vw] border border-[#bfc3c9]/50 text-white backdrop-blur-lg "
             >
-              <span className="text-[1.5vw]">{cat.icon}</span>
-              <p className="text-[1.5vw]">{cat.label}</p>
+              <span className="text-[4vw] md:text-[1.5vw]">{cat.icon}</span>
+              <p className="text-[4vw] md:text-[1.5vw]">{cat.label}</p>
             </button>
           </li>
         </ul>

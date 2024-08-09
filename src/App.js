@@ -4,13 +4,14 @@ import bg from './assets/bg.svg'
 import Navbar from "./components/Navbar";
 
 import Home from "./components/Home";
+import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div>
+    <div className="bg-slate-700">
       <Navbar />
       <div
-        className="absolute w-full h-[69.8vw] z-0 blur-3xl brightness-80 "
+        className="absolute w-full h-[130vw] blur-3xl z-0 brightness-80 "
         style={{
           backgroundImage: `url(${bg})`,
           backgroundSize: "100% auto",
@@ -18,6 +19,7 @@ function App() {
       >
       </div>
       <Home />
+      <Footer />
     </div>
   );
 }
