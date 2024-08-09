@@ -114,7 +114,7 @@ const AllMovies = () => {
         ))}
       </div>
       {/* Pagination Controls */}
-      <div className="flex justify-between w-[80vw] text-white mb-[5vw]">
+      <div className="flex justify-between items-center w-[80vw] text-white mb-[5vw]">
         <button
           onClick={goToPreviousPage}
           disabled={currentPage === 1}
