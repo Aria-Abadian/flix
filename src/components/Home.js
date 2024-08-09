@@ -9,8 +9,8 @@ const Home = () => {
       <Featured />
       <FilterButtons />
       <Trendings category='Animation' />
-      <Trendings category='Comedy' />
-      <Trendings category='K-drama' />
+      <Trendings category='comedy' />
+      <Trendings category='kDrama' />
     </div>
   );
 };
