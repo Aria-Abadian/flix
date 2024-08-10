@@ -263,7 +263,7 @@ const TrendingAnimation = ({ category }) => {
                 />
               </div>
               <a href={trendingCard.url}>
-                <h3 className="text-white font-semibold text-[5vw] md:text-[1.5vw] cursor-pointer">
+                <h3 className="text-white text-nowrap font-semibold text-[5vw] md:text-[1.5vw] cursor-pointer">
                   {trendingCard.title}
                 </h3>
                 <div className="cursor-pointer flex flex-row justify-start gap-3 font-semibold text-white text-[3vw] md:text-[1vw]">

@@ -18,11 +18,11 @@ const Popup = ({isOpen, closePopup}) => {
           <div className="p-[9vw] h-[100vw] md:w-[40vw] md:h-[38vw] flex flex-col justify-center items-center">
             <form className="flex flex-col gap-[4vw] md:gap-[1vw] items-center">
               <div className="flex flex-col">
-                <label className="text-white w-[16vw] md:text-[1.7vw] text-nowrap" for='username'>Email or username:</label>
+                <label className="text-white w-[16vw] md:text-[1.7vw] text-nowrap" htmlFor='username'>Email or username:</label>
                 <input className="bg-slate-200 rounded-md w-[61vw] md:w-[24vw] md:h-[3vw]" id="username" type="text" />
               </div>
               <div className="flex flex-col">
-                <label className="text-white w-[16vw] md:text-[1.7vw]" for='password'>Password:</label>
+                <label className="text-white w-[16vw] md:text-[1.7vw]" htmlFor='password'>Password:</label>
                 <input className="rounded-md bg-slate-200 w-[61vw] md:w-[24vw] md:h-[3vw]" id="password" type="text" />
               </div>
                 <a href="#">
