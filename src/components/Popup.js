@@ -19,11 +19,11 @@ const Popup = ({isOpen, closePopup}) => {
             <form className="flex flex-col gap-[4vw] md:gap-[1vw] items-center">
               <div className="flex flex-col">
                 <label className="text-white w-[16vw] md:text-[1.7vw] text-nowrap" htmlFor='username'>Email or username:</label>
-                <input className="bg-slate-200 rounded-md w-[61vw] md:w-[24vw] md:h-[3vw]" id="username" type="text" />
+                <input className="bg-slate-200 rounded-md w-[61vw] md:w-[24vw] md:h-[3vw] px-[5vw] md:px-[1vw]" id="username" type="text" />
               </div>
               <div className="flex flex-col">
                 <label className="text-white w-[16vw] md:text-[1.7vw]" htmlFor='password'>Password:</label>
-                <input className="rounded-md bg-slate-200 w-[61vw] md:w-[24vw] md:h-[3vw]" id="password" type="text" />
+                <input className="rounded-md bg-slate-200 w-[61vw] md:w-[24vw] md:h-[3vw] px-[5vw] md:px-[1vw]" id="password" type="text" />
               </div>
                 <a href="#">
               <div className="text-[4.7vw] md:text-[1.5vw] w-[60vw] text-nowrap md:h-[3vw] md:w-[24vw] mt-[5vw] md:mt-[1vw] text-white bg-[#4c8bf5] flex flex-row items-center justify-center gap-[3vw] md:gap-[1vw] px-[2vw] py-[.5vw] rounded-full">
