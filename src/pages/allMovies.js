@@ -49,47 +49,47 @@ const AllMovies = () => {
   return (
     <div className="relative z-10 pt-[18vw] md:pt-[10vw] flex flex-col items-center gap-[5vw]">
       <div className="md:bg-slate-500/30 backdrop-blur-3xl w-[70vw] md:w-[80vw] rounded-[2vw] shadow-2xl p-[5vw] md:p-[2vw]">
-        <h4 className="text-white text-sm md:text-xl md:font-bold mb-2">Filters:</h4>
-        <div className="flex flex-col md:flex-row gap-[5vw] md:gap-[1vw] items-center md:items-center justify-center">
+        <h4 className="text-white text-sm md:text-[2vw] md:font-semibold mb-2 md:mb-0">Filters:</h4>
+        <div className="flex flex-col md:flex-row gap-[5vw] md:gap-0 items-center md:items-center justify-center">
           <div className="grid grid-cols-2 md:flex gap-[1vw]">
             <button
               onClick={() => setSelectedCategory("all")}
-              className={`px-[2vw] py-[1vw] md:px-4 md:py-2 rounded ${selectedCategory === "all" ? "bg-blue-500" : "bg-slate-600"} text-white`}
+              className={`md:text-[1.5vw] px-[2vw] py-[1vw] md:px-4 md:py-2 rounded ${selectedCategory === "all" ? "bg-blue-500" : "bg-slate-600"} text-white`}
             >
               All
             </button>
             <button
               onClick={() => setSelectedCategory("comedy")}
-              className={`px-[2vw] py-[1vw] md:px-4 md:py-2 rounded ${selectedCategory === "comedy" ? "bg-blue-500" : "bg-slate-600"} text-white`}
+              className={`md:text-[1.5vw] px-[2vw] py-[1vw] md:px-4 md:py-2 rounded ${selectedCategory === "comedy" ? "bg-blue-500" : "bg-slate-600"} text-white`}
             >
               Comedy
             </button>
             <button
               onClick={() => setSelectedCategory("animations")}
-              className={`px-[2vw] py-[1vw] md:px-4 md:py-2 rounded ${selectedCategory === "animations" ? "bg-blue-500" : "bg-slate-600"} text-white`}
+              className={`md:text-[1.5vw] px-[2vw] py-[1vw] md:px-4 md:py-2 rounded ${selectedCategory === "animations" ? "bg-blue-500" : "bg-slate-600"} text-white`}
             >
               Animations
             </button>
             <button
               onClick={() => setSelectedCategory("kDrama")}
-              className={`px-[2vw] py-[1vw] md:px-4 md:py-2 rounded ${selectedCategory === "kDrama" ? "bg-blue-500" : "bg-slate-600"} text-white`}
+              className={`md:text-[1.5vw] px-[2vw] py-[1vw] md:px-4 md:py-2 rounded ${selectedCategory === "kDrama" ? "bg-blue-500" : "bg-slate-600"} text-white`}
             >
               K-Drama
             </button>
           </div>
         </div>
-          <div className=" flex flex-col justify-start mt-[5vw]">
-            <h4 className="text-white text-sm md:text-xl md:font-bold mb-2">Sort by:</h4>
+          <div className=" flex flex-col justify-start mt-[5vw] md:mt-[1vw]">
+            <h4 className="text-white text-sm md:text-[2vw] md:font-semibold mb-2">Sort by:</h4>
             <div className="flex flex-row justify-center gap-[1vw]">
               <button
                 onClick={() => setSortBy("year")}
-                className={`px-[2vw] py-[1vw] md:px-4 md:py-2 rounded ${sortBy === "year" ? "bg-blue-500" : "bg-slate-600"} text-white`}
+                className={`md:text-[1.5vw] px-[2vw] py-[1vw] md:px-4 md:py-2 rounded ${sortBy === "year" ? "bg-blue-500" : "bg-slate-600"} text-white`}
               >
                 Year
               </button>
               <button
                 onClick={() => setSortBy("rate")}
-                className={`px-[2vw] py-[1vw] md:px-4 md:py-2 rounded ${sortBy === "rate" ? "bg-blue-500" : "bg-slate-600"} text-white`}
+                className={`md:text-[1.5vw] px-[2vw] py-[1vw] md:px-4 md:py-2 rounded ${sortBy === "rate" ? "bg-blue-500" : "bg-slate-600"} text-white`}
               >
                 Rating
               </button>
@@ -103,11 +103,11 @@ const AllMovies = () => {
               <img src={item.image} alt={item.title} />
             </div>
             <div className="flex flex-col gap-[1vw]">
-              <h2 className="text-white text-[5vw] md:text-[1.5vw] font-semibold">{item.title}</h2>
+              <h2 className="text-white text-[5vw] md:text-[2vw] font-semibold">{item.title}</h2>
               <div className="flex flex-row items-center gap-[2vw] text-white font-semibold">
-                <p>⭐{item.rate}</p>
-                <p>|</p>
-                <p>{item.year}</p>
+                <p className="md:text-[1vw]">⭐{item.rate}</p>
+                <p className="md:text-[1vw]">|</p>
+                <p className="md:text-[1vw]">{item.year}</p>
               </div>
             </div>
           </div>

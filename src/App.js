@@ -21,8 +21,8 @@ function App() {
       >
         
       </div>
-      {/* <Home /> */}
-      <AllMovies />
+      <Home />
+      {/* <AllMovies /> */}
       <Footer />
     </div>
   );
