@@ -23,7 +23,7 @@ const FilterButtons = () => {
   ];
 
   return (
-    <div className="overflow-x-scroll overflow-y-hidden px-[5vw] h-[15vw] md:h-[9vw] flex flex-row items-center gap-3">
+    <div className="overflow-x-scroll lg:overflow-x-hidden px-[5vw] h-[15vw] md:h-[9vw] flex flex-row justify-start lg:justify-center items-center gap-3">
       {categories.map((cat, index) => (
         <ul key={index}>
           <li>

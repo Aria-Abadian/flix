@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 // Data
 import { animations, kDrama, comedy } from "../data/TrendingData";
@@ -9,6 +9,15 @@ import { HiOutlineFunnel } from "react-icons/hi2";
 
 const TrendingAnimation = ({ category }) => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [trendingCards, setTrendingCards] = useState([...animations]);
+  const [openFilters, setOpenFilters] = useState("h-0");
+  const [selectedRating, setSelectedRating] = useState(null);
+  const [selectedYear, setSelectedYear] = useState(null);
+
+  const scrollContainerRef = useRef(null);
+  const isDraggingRef = useRef(false);
+  const startXRef = useRef(0);
+  const scrollLeftRef = useRef(0);
 
   let originalCards = [];
 
@@ -19,11 +28,6 @@ const TrendingAnimation = ({ category }) => {
   } else {
     originalCards = [...animations];
   }
-
-  const [trendingCards, setTrendingCards] = useState([...animations]);
-  const [openFilters, setOpenFilters] = useState('h-0');
-  const [selectedRating, setSelectedRating] = useState(null);
-  const [selectedYear, setSelectedYear] = useState(null);
 
   // Update windowWidth on window resize
   useEffect(() => {
@@ -37,14 +41,14 @@ const TrendingAnimation = ({ category }) => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-    
   }, []);
+
   // Handle filter visibility
   const handleFilters = () => {
     if (windowWidth >= 767) {
-      setOpenFilters(openFilters === 'h-0' ? 'h-[3vw]' : 'h-0');
+      setOpenFilters(openFilters === "h-0" ? "h-[3vw]" : "h-0");
     } else {
-      setOpenFilters(openFilters === 'h-0' ? 'h-[20vw]' : 'h-0');
+      setOpenFilters(openFilters === "h-0" ? "h-[20vw]" : "h-0");
     }
   };
 
@@ -124,28 +128,82 @@ const TrendingAnimation = ({ category }) => {
     setSelectedYear(null); // Reset filters
   }, [category]);
 
+  const handleMouseDown = (e) => {
+    if (e.target.tagName === "IMG") return; // Skip dragging if mouse is on an image
+    isDraggingRef.current = true;
+    startXRef.current = e.pageX - scrollContainerRef.current.offsetLeft;
+    scrollLeftRef.current = scrollContainerRef.current.scrollLeft;
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDraggingRef.current) return;
+    const x = e.pageX - scrollContainerRef.current.offsetLeft;
+    const walk = (x - startXRef.current) * 2; // Adjust the scrolling speed
+    scrollContainerRef.current.scrollLeft = scrollLeftRef.current - walk;
+  };
+
+  const handleMouseUpOrLeave = () => {
+    isDraggingRef.current = false;
+  };
+
+  const handleDragStart = (e) => {
+    e.preventDefault(); // Prevent dragging of images
+  };
+
+  // Scroll functions
+  const scrollLeft = () => {
+    scrollContainerRef.current.scrollBy({
+      left: -window.innerWidth * 0.8, // Adjust scroll amount as needed
+      behavior: "smooth",
+    });
+  };
+
+  const scrollRight = () => {
+    scrollContainerRef.current.scrollBy({
+      left: window.innerWidth * 0.8, // Adjust scroll amount as needed
+      behavior: "smooth",
+    });
+  };
+
   return (
     <div>
       <div>
-        <div className="h-[20vw] md:h-[4vw] md:w-full flex flex-row justify-between items-center px-[2vw] text-[5vw] md:text-[2.1vw] font-bold text-white">
+        <div className="h-[20vw] md:h-[4vw] md:w-full flex flex-row justify-between items-center md:px-[2vw] text-[5vw] md:text-[2.1vw] font-bold text-white">
           <h2>Trending in {category}</h2>
-          <div
-            className="bg-slate-900 w-[25vw] h-[8vw] md:w-[8.3vw] md:h-[3vw] rounded-full flex flex-row justify-between
-          items-center px-[4vw] md:px-[1.5vw] text-[5vw] md:text-[1.5vw]"
-          >
-            <button onClick={handleFilters}>
-              <div className="text-gray-300 hover:text-white">
-                <IoMdFunnel />
+
+          <div className="flex flex-row-reverse items-end gap-[3vw]"> 
+            <div
+              className="bg-slate-900 w-[25vw] h-[8vw] md:w-[8.3vw] md:h-[3vw] rounded-full flex flex-row justify-between
+            items-center px-[4vw] md:px-[1.5vw] text-[5vw] md:text-[1.5vw]"
+            >
+              <button onClick={handleFilters}>
+                <div className="text-gray-300 hover:text-white">
+                  <IoMdFunnel />
+                </div>
+              </button>
+              <div className="text-gray-500 font-thin -translate-y-1">
+                <span>|</span>
               </div>
-            </button>
-            <div className="text-gray-500 font-thin -translate-y-1">
-              <span>|</span>
+              <button onClick={handleFilters}>
+                <div className="text-gray-300 hover:text-white">
+                  <HiOutlineFunnel />
+                </div>
+              </button>
             </div>
-            <button onClick={handleFilters}>
-              <div className="text-gray-300 hover:text-white">
-                <HiOutlineFunnel />
-              </div>
-            </button>
+            <div className="inset-x-0 bottom-0 hidden md:flex justify-center gap-[1vw] text-sm md:text-[1vw]">
+              <button
+                className="bg-gray-800 text-white rounded-full shadow-md hover:bg-gray-700 flex justify-center items-center h-[2vw] w-[2vw]"
+                onClick={scrollLeft}
+              >
+                <span className="2xl:-translate-y-[.2vw]">&lt;</span>
+              </button>
+              <button
+                className="bg-gray-800 text-white rounded-full shadow-md hover:bg-gray-700 flex justify-center items-center h-[2vw] w-[2vw]"
+                onClick={scrollRight}
+              >
+                <span className="2xl:-translate-y-[.2vw]">&gt;</span>
+              </button>
+            </div>
           </div>
         </div>
         <div
@@ -185,29 +243,38 @@ const TrendingAnimation = ({ category }) => {
           </div>
         </div>
       </div>
-      <div className="h-[85vw] md:h-[27.5vw] flex px-[5vw] flex-row items-center overflow-x-scroll ">
-        {trendingCards.map((trendingCard, index) => (
-          <a href={trendingCard.url} key={index}>
-            <div className="flex flex-col gap-[.5vw] px-[2vw]" >
-            
+      <div className="relative">
+        <div
+          className="h-[85vw] md:h-[27.5vw] flex px-[5vw] flex-row items-center overflow-x-scroll"
+          ref={scrollContainerRef}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUpOrLeave}
+          onMouseLeave={handleMouseUpOrLeave}
+        >
+          {trendingCards.map((trendingCard, index) => (
+            <div className="flex flex-col gap-[.5vw] px-[2vw]" key={index}>
               <div className="object-cover h-[70vw] w-[50vw] md:h-[21vw] md:w-[15vw] cursor-pointer overflow-hidden rounded-[2vw]">
                 <img
                   className="w-full self-center"
                   src={trendingCard.image}
                   alt={trendingCard.title}
+                  onDragStart={handleDragStart} // Prevent image dragging
                 />
               </div>
-              <h3 className="text-white font-semibold text-[5vw] md:text-[1.5vw] cursor-pointer">
-                {trendingCard.title}
-              </h3>
-              <div className="cursor-pointer flex flex-row justify-start gap-3 font-semibold text-white text-[3vw] md:text-[1vw]">
-                <p>⭐ {trendingCard.rate}</p>
-                <p className="text-gray-300">|</p>
-                <p>{trendingCard.year}</p>
-              </div>
+              <a href={trendingCard.url}>
+                <h3 className="text-white font-semibold text-[5vw] md:text-[1.5vw] cursor-pointer">
+                  {trendingCard.title}
+                </h3>
+                <div className="cursor-pointer flex flex-row justify-start gap-3 font-semibold text-white text-[3vw] md:text-[1vw]">
+                  <p>⭐ {trendingCard.rate}</p>
+                  <p className="text-gray-300">|</p>
+                  <p>{trendingCard.year}</p>
+                </div>
+              </a>
             </div>
-          </a>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
