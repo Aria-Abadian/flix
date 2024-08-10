@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+
 import { FaSearch } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
 import { FaBell } from "react-icons/fa6";
@@ -53,7 +55,9 @@ const Navbar = () => {
   return (
     <div className="h-[15vw] md:h-[6.2vw] flex flex-row justify-between absolute z-20 w-full pr-[3vw] md:pr-0">
       <div className=" w-[20vw] md:w-1/3 flex items-center pl-[4vw] md:pl-[2vw] text-[8vw] md:text-[2.2vw] font-bold text-white">
-        <h1 className="cursor-pointer">Flix.id</h1>
+        <Link to='/'>
+          <h1 className="cursor-pointer">Flix.id</h1>
+        </Link>
       </div>
       <div className="w-[90vw] fixed bottom-2 left-[5vw] md:static md:w-1/3 flex justify-center items-center">
         <div
@@ -62,9 +66,9 @@ const Navbar = () => {
           <nav
             className={`text-[4.5vw] md:text-[1vw] ${hideNav} flex-row gap-[3vw] justify-center items-center text-gray-200 font-semibold`}
           >
-            <a className="cursor-pointer">Movie</a>
-            <a className="cursor-pointer">Series</a>
-            <a className="cursor-pointer">Originals</a>
+            <Link to="/allMovies" className="cursor-pointer">Movie</Link>
+            <Link to="/allMovies" className="cursor-pointer">Series</Link>
+            <Link to="/allMovies" className="cursor-pointer">Originals</Link>
           </nav>
           <div
             className={`cursor-pointer ${searchWidth} h-[13vw] md:h-[2.8vw] bg-slate-700 rounded-full gap-[5vw] md:gap-[1vw] flex items-center text-[5vw] md:text-[1.1vw] text-gray-200`}

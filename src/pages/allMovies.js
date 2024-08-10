@@ -99,17 +99,19 @@ const AllMovies = () => {
       <div className="grid grid-cols-1 md:grid-cols-5 gap-[10vw] md:gap-[2vw] pl-[3vw]">
         {currentItems.map((item, index) => (
           <div className="flex flex-col items-start gap-[1vw]" key={index}>
-            <div className="object-cover shadow-2xl bg-black h-[70vw] w-[50vw] md:h-[21vw] md:w-[15vw] cursor-pointer overflow-hidden rounded-[2vw]">
-              <img src={item.image} alt={item.title} />
-            </div>
-            <div className="flex flex-col gap-[1vw]">
-              <h2 className="text-white text-[5vw] md:text-[2vw] font-semibold">{item.title}</h2>
-              <div className="flex flex-row items-center gap-[2vw] text-white font-semibold">
-                <p className="md:text-[1vw]">⭐{item.rate}</p>
-                <p className="md:text-[1vw]">|</p>
-                <p className="md:text-[1vw]">{item.year}</p>
+            <a href={item.url}>
+              <div className="object-cover shadow-2xl bg-black h-[70vw] w-[50vw] md:h-[21vw] md:w-[15vw] cursor-pointer overflow-hidden rounded-[2vw]">
+                <img src={item.image} alt={item.title} />
               </div>
-            </div>
+              <div className="flex flex-col gap-[1vw]">
+                <h2 className="text-white text-[5vw] md:text-[2vw] font-semibold">{item.title}</h2>
+                <div className="flex flex-row items-center gap-[2vw] text-white font-semibold">
+                  <p className="md:text-[1vw]">⭐{item.rate}</p>
+                  <p className="md:text-[1vw]">|</p>
+                  <p className="md:text-[1vw]">{item.year}</p>
+                </div>
+              </div>
+            </a>
           </div>
         ))}
       </div>

@@ -21,7 +21,7 @@ const TrendingAnimation = ({ category }) => {
   }
 
   const [trendingCards, setTrendingCards] = useState([...animations]);
-  const [openFilters, setOpenFilters] = useState('0');
+  const [openFilters, setOpenFilters] = useState('h-0');
   const [selectedRating, setSelectedRating] = useState(null);
   const [selectedYear, setSelectedYear] = useState(null);
 
@@ -42,9 +42,9 @@ const TrendingAnimation = ({ category }) => {
   // Handle filter visibility
   const handleFilters = () => {
     if (windowWidth >= 767) {
-      setOpenFilters(openFilters === '0' ? '3vw' : '0');
+      setOpenFilters(openFilters === 'h-0' ? 'h-[3vw]' : 'h-0');
     } else {
-      setOpenFilters(openFilters === '0' ? '20vw' : '0');
+      setOpenFilters(openFilters === 'h-0' ? 'h-[20vw]' : 'h-0');
     }
   };
 
@@ -149,7 +149,7 @@ const TrendingAnimation = ({ category }) => {
           </div>
         </div>
         <div
-          className={`text-white text-nowrap h-${openFilters} overflow-x-scroll overflow-hidden bg-slate-900/90
+          className={`text-white text-nowrap ${openFilters} overflow-x-scroll overflow-hidden bg-slate-900/90
           mb-[5vw] md:mb-[2vw] flex md:flex-row items-center px-[10vw] md:px-[3vw] gap-[15vw] md:gap-[5vw]`}
         >
           <div className="flex flex-row gap-[5vw] md:gap-[1vw]">
@@ -185,25 +185,28 @@ const TrendingAnimation = ({ category }) => {
           </div>
         </div>
       </div>
-      <div className="h-[85vw] md:h-[27.5vw] flex px-[5vw] flex-row items-center overflow-x-scroll">
+      <div className="h-[85vw] md:h-[27.5vw] flex px-[5vw] flex-row items-center overflow-x-scroll ">
         {trendingCards.map((trendingCard, index) => (
-          <div className="flex flex-col gap-[.5vw] px-[2vw]" key={index}>
-            <div className="object-cover h-[70vw] w-[50vw] md:h-[21vw] md:w-[15vw] cursor-pointer overflow-hidden rounded-[2vw]">
-              <img
-                className="w-full self-center"
-                src={trendingCard.image}
-                alt={trendingCard.title}
-              />
+          <a href={trendingCard.url} key={index}>
+            <div className="flex flex-col gap-[.5vw] px-[2vw]" >
+            
+              <div className="object-cover h-[70vw] w-[50vw] md:h-[21vw] md:w-[15vw] cursor-pointer overflow-hidden rounded-[2vw]">
+                <img
+                  className="w-full self-center"
+                  src={trendingCard.image}
+                  alt={trendingCard.title}
+                />
+              </div>
+              <h3 className="text-white font-semibold text-[5vw] md:text-[1.5vw] cursor-pointer">
+                {trendingCard.title}
+              </h3>
+              <div className="cursor-pointer flex flex-row justify-start gap-3 font-semibold text-white text-[3vw] md:text-[1vw]">
+                <p>⭐ {trendingCard.rate}</p>
+                <p className="text-gray-300">|</p>
+                <p>{trendingCard.year}</p>
+              </div>
             </div>
-            <h3 className="text-white font-semibold text-[5vw] md:text-[1.5vw] cursor-pointer">
-              {trendingCard.title}
-            </h3>
-            <div className="cursor-pointer flex flex-row justify-start gap-3 font-semibold text-white text-[3vw] md:text-[1vw]">
-              <p>⭐ {trendingCard.rate}</p>
-              <p className="text-gray-300">|</p>
-              <p>{trendingCard.year}</p>
-            </div>
-          </div>
+          </a>
         ))}
       </div>
     </div>

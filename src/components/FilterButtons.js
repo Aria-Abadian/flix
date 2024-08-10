@@ -8,6 +8,7 @@ import { RiBearSmileLine } from "react-icons/ri";
 import { SlGhost } from "react-icons/sl";
 import { GiFallingStar } from "react-icons/gi";
 import { LuMoonStar } from "react-icons/lu";
+import { Link } from "react-router-dom";
 
 
 const FilterButtons = () => {
@@ -26,14 +27,14 @@ const FilterButtons = () => {
       {categories.map((cat, index) => (
         <ul key={index}>
           <li>
-            <button
+            <Link to="/allMovies"
               className=" flex flex-row items-center justify-center font-semibold gap-2 text-2xl bg-[#8e9399]/10 w-[30vw] h-[8vw]
               md:w-[13vw] md:h-[6vw]
             rounded-[2vw] border border-[#bfc3c9]/50 text-white backdrop-blur-lg "
             >
               <span className="text-[4vw] md:text-[1.5vw]">{cat.icon}</span>
               <p className="text-[4vw] md:text-[1.5vw]">{cat.label}</p>
-            </button>
+            </Link>
           </li>
         </ul>
       ))}
