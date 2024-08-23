@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/static/css/main.7b1ce7cb.css",
+    "main.js": "/static/js/main.6943ea1a.js",
+    "static/js/453.05e4485b.chunk.js": "/static/js/453.05e4485b.chunk.js",
+    "static/media/theGoodPlace.webp": "/static/media/theGoodPlace.4306b32c01bbba0178e7.webp",
+    "static/media/pachinko.webp": "/static/media/pachinko.e54be706d4755239728b.webp",
+    "static/media/modernFamily.webp": "/static/media/modernFamily.643956e1aa79c02e1d6a.webp",
+    "static/media/up.webp": "/static/media/up.749cab2b601932509e50.webp",
+    "static/media/sweetHome.webp": "/static/media/sweetHome.ba7c9102b60ef5f5c464.webp",
+    "static/media/squidGame.webp": "/static/media/squidGame.03b9e427b87c35121d74.webp",
+    "static/media/frozen.webp": "/static/media/frozen.c9a335cee35c8e7aa4fe.webp",
+    "static/media/gravityFalls.webp": "/static/media/gravityFalls.9b3f73dcedbd2a338a66.webp",
+    "static/media/hotel4.webp": "/static/media/hotel4.0372d028af8d8db11b99.webp",
+    "static/media/himym.webp": "/static/media/himym.cda327d721c351ba2192.webp",
+    "static/media/theOffice.webp": "/static/media/theOffice.ba61f8c5775b5716ac1d.webp",
+    "static/media/XMen97.webp": "/static/media/XMen97.bfb33f454e7a601c82ae.webp",
+    "static/media/brooklynNineNine.webp": "/static/media/brooklynNineNine.b1ca6d1f9b560d0b8039.webp",
+    "static/media/seinfeld.webp": "/static/media/seinfeld.d2a170f52f99cedf242e.webp",
+    "static/media/panda4.webp": "/static/media/panda4.798ea05aeb080b6aa481.webp",
+    "static/media/adventureTime.webp": "/static/media/adventureTime.e1b457ac64b04361589b.webp",
+    "static/media/lonelyGirlNight.webp": "/static/media/lonelyGirlNight.010571a682d351c6108e.webp",
+    "static/media/profilePic.webp": "/static/media/profilePic.c8e37c454751e465d4d0.webp",
+    "static/media/desMe.webp": "/static/media/desMe.ab5021c6c3317aa65ee0.webp",
+    "static/media/soloLeveling.webp": "/static/media/soloLeveling.c579068e95ac7963fdfd.webp",
+    "static/media/friends.webp": "/static/media/friends.1dff4c64e2be499e27d3.webp",
+    "static/media/parksAndRecreation.webp": "/static/media/parksAndRecreation.3b619d0caa81a4e6bd20.webp",
+    "static/media/bg.svg": "/static/media/bg.340e73168e8a7ebecbc0579fbb60c185.svg",
+    "index.html": "/index.html",
+    "main.7b1ce7cb.css.map": "/static/css/main.7b1ce7cb.css.map",
+    "main.6943ea1a.js.map": "/static/js/main.6943ea1a.js.map",
+    "453.05e4485b.chunk.js.map": "/static/js/453.05e4485b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7b1ce7cb.css",
+    "static/js/main.6943ea1a.js"
+  ]
+}
